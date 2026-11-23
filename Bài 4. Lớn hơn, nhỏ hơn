@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class bai1{
+    static boolean greater(int n, int m){
+        if(n<m) return false ;
+        return true ;
+    }
+
+    static void main(String[] args) {
+        Scanner sc = new Scanner(System.in) ;
+        int n = sc.nextInt() ;
+        ArrayList<Integer> arr = new ArrayList<Integer>(n) ;
+        int dem1 = 0 ;
+        int dem2 = 0 ;
+        for(int i = 0 ; i < n ; i++){
+            arr.add(sc.nextInt()) ;
+        }
+        int m = sc.nextInt() ;
+        for(int x : arr){
+            if(greater(x,m)) dem1++ ;
+            else dem2++ ;
+        }
+
+        System.out.println(dem2);
+        System.out.println(dem1);
+    }
+}
