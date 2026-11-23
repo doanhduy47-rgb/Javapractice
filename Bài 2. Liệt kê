@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+public class bai1{
+    static boolean isPrime(int n){
+        if (n<2) return false ;
+        for(int i = 2 ; i <= Math.sqrt(n) ; i++) {
+            if(n%i==0) return false ;
+        }
+        return true ;
+    }
+
+    static boolean isPalindrome(int n){
+        if(n<0) return false ;
+
+        int temp = n ;
+        long rev = 0 ;
+        while(temp > 0 ){
+            rev = rev *10 + temp%10 ;
+            temp /= 10 ;
+        }
+        return rev == n ;
+    }
+
+    static boolean isSquare(int n){
+        if(n < 0) return false ;
+        int x = (int) Math.sqrt(n) ;
+        return x * x == n  ;
+    }
+
+    static boolean isPrimeDigitSum(int n) {
+        long temp = Math.abs((long) n);
+        int sum = 0;
+
+        while (temp > 0) {
+            sum += temp % 10;
+            temp /= 10;
+        }
+
+        if (sum < 2) return false;
+
+        for (int i = 2; i <= Math.sqrt(sum); i++) {
+            if (sum % i == 0) return false;
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] a = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+
+        int dem1 = 0, dem2 = 0, dem3 = 0, dem4 = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (isPrime(a[i])) dem1++;
+            if (isPalindrome(a[i])) dem2++;
+            if (isSquare(a[i])) dem3++;
+            if (isPrimeDigitSum(a[i])) dem4++;
+        }
+
+        System.out.println(dem1);
+        System.out.println(dem2);
+        System.out.println(dem3);
+        System.out.println(dem4);
+
+    }
+}
